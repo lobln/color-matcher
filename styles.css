@@ -137,7 +137,7 @@ body {
 }
 
 .copy-btn:hover img {
-    background-image: url("../img/copy_icon_white.png");
+    content: url("../img/copy_icon_white.png");
 }
 
 /* Active Styles */
@@ -151,7 +151,7 @@ body {
 }
 
 .copy-btn:active img {
-    background-image: url("../img/copy_icon_white.png");
+    content: url("../img/copy_icon_white.png");
 }
 
 /* Slider Layout */
