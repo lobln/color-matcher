@@ -4,74 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Color Matcher</title>
+
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" type="image/png" src="img/favicon.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
 </head>
+
 <body>
-    <div class="page">
+<div class="page">
 
 <div class="fenster kopf">
-    <div class="title-row">
-        <h1>Color Matcher</h1>
-        <button class="help-btn" title="Show Instructions">?</button>
+  <div class="title-row">
+    <h1>Color Matcher6</h1>
+    <button class="help-btn" title="Show Instructions">?</button>
 
-        <div class="level-group">
-            <h2>Level:</h2>
-            <div class="level-bar">
-                <div class="lvl">1</div>
-                <div class="lvl">2</div>
-                <div class="lvl">3</div>
-                <div class="lvl">4</div>
-                <div class="lvl">5</div>
-                <div class="lvl">6</div>
-                <div class="lvl">7</div>
-                <div class="lvl">8</div>
-                <div class="lvl">9</div>
-                <div class="lvl">10</div>
-            </div>
-        </div>
+    <div class="level-group">
+      <h2>Level:</h2>
+      <div class="level-bar">
+        <div class="lvl">1</div>
+        <div class="lvl">2</div>
+        <div class="lvl">3</div>
+        <div class="lvl">4</div>
+        <div class="lvl">5</div>
+        <div class="lvl">6</div>
+        <div class="lvl">7</div>
+        <div class="lvl">8</div>
+        <div class="lvl">9</div>
+        <div class="lvl">10</div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="container">
-    <div class="fenster aufgabe">
-        <h2>Target Color:</h2>
-        <div class="farbfeld aufgabe"></div>
+
+  <div class="fenster aufgabe">
+    <h2>Target Color:</h2>
+    <div class="farbfeld aufgabe"></div>
+  </div>
+
+  <div class="fenster eingabe">
+    <h2>Your Input:</h2>
+    <div class="farbfeld eingabe"></div>
+
+    <div class="hex-submit-row">
+      <span class="hex-code">HEX: <span>#000000</span></span>
+
+      <button class="copy-btn" title="Copy HEX to Clipboard">
+        <img class="icon icon-default" src="img/copy_icon.png" alt="">
+        <img class="icon icon-hover" src="img/copy_icon_white.png" alt="">
+      </button>
+
+      <button class="submit-btn">Submit</button>
     </div>
 
-    <div class="fenster eingabe">
-        <h2>Your Input:</h2>
-        <div class="farbfeld eingabe"></div>
-
-        <div class="hex-submit-row">
-            <span class="hex-code">HEX: <span>#000000</span></span>
-            <button class="copy-btn" title="Copy HEX to Clipboard"><img src="img/copy_icon.png"></button>
-            <button class="submit-btn">Submit</button>
-        </div>
-
-        <div class="slider-group">
-            <div class="slider-row">
-                <span class="slider-label">R</span>
-                <input type="range" min="0" max="255" value="0">
-                <span class="slider-value">0</span>
-            </div>
-            <div class="slider-row">
-                <span class="slider-label">G</span>
-                <input type="range" min="0" max="255" value="0">
-                <span class="slider-value">0</span>
-            </div>
-            <div class="slider-row">
-                <span class="slider-label">B</span>
-                <input type="range" min="0" max="255" value="0">
-                <span class="slider-value">0</span>
-            </div>
-        </div>
+    <div class="slider-group">
+      <div class="slider-row">
+        <span class="slider-label">R</span>
+        <input type="range" min="0" max="255" value="0">
+        <span class="slider-value">0</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-label">G</span>
+        <input type="range" min="0" max="255" value="0">
+        <span class="slider-value">0</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-label">B</span>
+        <input type="range" min="0" max="255" value="0">
+        <span class="slider-value">0</span>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="modal-overlay hidden">
-    <div class="fenster modal-content">
-    </div>
+  <div class="fenster modal-content"></div>
 </div>
 
 <script src="script.js"></script>
