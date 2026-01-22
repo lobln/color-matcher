@@ -1,0 +1,691 @@
+/* Schriftart einbinden */
+@font-face {
+    font-family: "MS Sans Serif";
+    src: url("fonts/ms-sans-serif-1.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100dvh;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    background-color: #75CACC;
+    padding: 2.5dvh 2.5dvw;
+    font-family: "MS Sans Serif";
+    display: flex;
+    flex-direction: column;
+    gap: 2.5dvh;
+    letter-spacing: 0.1em;
+}
+
+.page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4dvh;
+    gap: 2.5dvh;
+    min-height: 0;
+}
+
+/* Allgemeine Fenster-Stile */
+.fenster {
+    background: #c1c4c7;
+    padding: 2dvh 2dvw;
+    display: flex;
+    flex-direction: column;
+    gap: 2dvh;
+    flex: 0 0 auto;
+    border: 0.5rem solid;
+    border-top-color: #e5e5e5;
+    border-left-color: #e5e5e5;
+    border-right-color: #7a7a7a;
+    border-bottom-color: #7a7a7a;
+}
+
+/* Container */
+.container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 2dvw;
+    min-width: 0;
+}
+
+/* Abstand über und unter Titeln reduzieren */
+.fenster.aufgabe, .fenster.eingabe {
+    display: flex;
+    flex-direction: column;
+    gap: 1dvh;
+    flex: 1 1 0;
+}
+
+/* Farbfelder */
+.farbfeld.aufgabe, .farbfeld.eingabe {
+    flex: 1 1 0;
+    border: 1dvh solid;
+    box-sizing: border-box; 
+    border-top-color: #7a7a7a;
+    border-left-color: #7a7a7a;
+    border-right-color: #e5e5e5;
+    border-bottom-color: #e5e5e5;
+}
+
+/* HEX + Copy + Submit in einer Zeile */
+.hex-submit-row {
+    display: flex;
+    align-items: center;
+    gap: 1dvw;
+}
+
+/* Buttons */
+.copy-btn, .submit-btn, .help-btn { 
+    font-family: "MS Sans Serif";
+    font-weight: bold;
+    background: #d1d1d1;
+    cursor: pointer;
+    border: 2px solid;
+    border-top-color: #fcfcfc;
+    border-left-color: #fcfcfc;
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+    padding: 0.5dvh 1dvw; 
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+/* Spezifische Button-Stile */
+.copy-btn {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.3rem 0.5dvw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn img {
+    width: 1rem;     
+    height: 1rem;
+}
+
+.submit-btn {
+    margin-left: auto;
+}
+
+/* Help Button */
+.help-btn { 
+    width: 2rem; 
+    height: 2rem; 
+    font-size: 1.5rem; 
+    line-height: 1.5rem; 
+    padding: 0; 
+    align-self: center;
+    box-sizing: border-box;
+}
+
+/* Hover Styles */
+.copy-btn:hover, .submit-btn:hover, .help-btn:hover {
+    border-color: #404040;
+    background: #528c97;
+    color: white;
+}
+
+.copy-btn:hover img {
+    content: url("/img/copy_icon_white.png");
+}
+
+/* Active Styles */
+.copy-btn:active, .submit-btn:active, .help-btn:active {
+    border-top-color: #000000;     
+    border-left-color: #000000;   
+    border-right-color: #fcfcfc;   
+    border-bottom-color: #fcfcfc;  
+    background: #404040;
+    color: white;
+}
+
+.copy-btn:active img {
+    content: url("/img/copy_icon_white.png");
+}
+
+/* Slider Layout */
+.slider-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1dvh;
+    padding-top: 1dvh; 
+}
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 1dvw; 
+}
+
+.slider-label, .slider-value {
+    flex-shrink: 0;
+    padding: 0.5dvh; 
+    font-weight: bold;
+    min-width: 1.5rem; 
+    text-align: center;
+}
+
+/* Slider-Größe anpassen */
+.slider-row input[type="range"] {
+    flex-grow: 1;
+    max-width: 80%; 
+}
+
+/* Slider Styles: */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 3dvh;
+    background: transparent;
+    padding: 0;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 2dvh;
+    background: #a0a0a0;
+    border: 2px solid #808080;
+    border-right-color: white;
+    border-bottom-color: white;
+    border-left-color: #404040;
+    border-top-color: #404040; 
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2.5dvh;
+    height: 2.5dvh;
+    background: #c0c0c0;
+    border: 2px solid #808080;
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+    border-left-color: white;
+    border-top-color: white;
+    margin-top: calc(-1.25dvh + 0.75dvh);
+    cursor: grab;
+}
+
+/* Slider Thumb Hover Style */
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #528c97; 
+    border-color: #404040;
+}
+
+/* Slider Thumb Active Style */
+input[type="range"]:active::-webkit-slider-thumb {
+    cursor: grabbing;
+    width: 3dvh; 
+    height: 3dvh;
+    margin-top: calc(-1.5dvh + 0.75dvh); 
+    border-top-color: #000000;     
+    border-left-color: #000000;   
+    border-right-color: #fcfcfc;   
+    border-bottom-color: #fcfcfc;  
+    background: #404040;
+}
+
+
+/* Firefox */
+input[type="range"]::-moz-range-track {
+    height: 0.8dvh;
+    background: #c0c0c0;
+    border: 2px solid #808080;
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+    border-left-color: white;
+    border-top-color: white;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 2.5dvh;
+    height: 2.5dvh;
+    background: #c0c0c0;
+    border: 2px solid #808080;
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+    border-left-color: white;
+    border-top-color: white;
+    cursor: grab;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #528c97; 
+    border-color: #404040;
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    cursor: grabbing;
+    width: 3dvh;
+    height: 3dvh;
+    border-top-color: #000000;     
+    border-left-color: #000000;   
+    border-right-color: #fcfcfc;   
+    border-bottom-color: #fcfcfc;  
+    background: #404040;
+}
+
+
+/* Titelzeilen */
+h1, h2 {
+    padding: 0;
+}
+
+/* title-row für Wrap-Verhalten konfigurieren */
+.title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 1dvw;
+}
+
+/* Level-Group muss den restlichen Platz einnehmen (und umbrechen) */
+.level-group { 
+    display: flex;
+    align-items: center;
+    gap: 0.5dvw; 
+    margin-left: auto;
+    flex-basis: auto; 
+    flex-grow: 1; 
+    justify-content: flex-end; 
+    min-width: 300px; 
+}
+
+/* Levelanzeige */
+.level-bar {
+    display: flex;
+    gap: 0.5dvw;
+}
+
+.lvl {
+    width: 2rem;
+    height: 2rem;
+    border: 0.2rem solid;
+    background: #c0c0c0;
+    transition: all .15s ease;
+    position: relative;
+    border-top-color: #7a7a7a;
+    border-left-color: #7a7a7a;
+    border-right-color: #e5e5e5;
+    border-bottom-color: #e5e5e5;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.lvl.level-active {
+    background: #528c97; 
+}
+
+.lvl.level-current {
+    background: #c0c0c0;
+    outline: 0.2rem dashed #404040;
+    outline-offset: 0.1rem;
+}
+
+.lvl.level-inactive {
+    background: #c0c0c0;
+    opacity: 0.5;
+}
+
+.lvl.completed {
+    color: transparent; 
+}
+
+/* Haken-Größe und Zentrierung (Vertikale Korrektur) */
+.lvl.completed::after {
+    content: "";
+    position: absolute;
+    width: 90%; 
+    height: 90%; 
+    background-image: url("/img/tick.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -40%); 
+}
+
+/* ---------------------------------------------------------------------------------- */
+/* MODAL STYLES (Unverändert) */
+/* ---------------------------------------------------------------------------------- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-content {
+    cursor: default;
+    width: auto;
+    max-width: 45dvw;
+    min-width: 300px;
+    padding: 3dvh 3dvw;
+    box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.5); 
+}
+
+/* Struktur für den Titelbereich (Kein Rahmen hier) */
+.modal-comparison {
+    display: flex;
+    padding-bottom: 0.5dvh; 
+    border: none;
+    padding: 0;
+}
+
+/* Wrapper für die Farbfelder, der den gemeinsamen Rahmen erhält */
+.modal-color-fields-wrapper {
+    display: flex;
+    margin-bottom: 1.5dvh;
+    
+    /* Fügt den gemeinsamen 3D-Rahmen um beide Farbfelder */
+    border: 0.5dvh solid; 
+    box-sizing: border-box; 
+    border-top-color: #7a7a7a;
+    border-left-color: #7a7a7a;
+    border-right-color: #e5e5e5;
+    border-bottom-color: #e5e5e5;
+}
+
+
+.modal-color-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 120px;
+}
+
+.modal-color-box h3 {
+    padding: 0 0 0.5dvh 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Farbfeld-Elemente */
+.modal-color-field {
+    height: 10dvh;
+    border: none;
+    box-sizing: border-box;
+}
+
+
+.modal-message-text {
+    font-size: 1.1rem;
+    padding-bottom: 2dvh;
+    letter-spacing: 0.1em;
+}
+
+.modal-message-similarity {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding-top: 1dvh;
+    text-align: center;
+    color: #2e2eb3;
+}
+
+.modal-message-result {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-bottom: 1.5dvh;
+}
+
+.modal-message-result.passed {
+    color: #007f00; 
+}
+
+.modal-message-result.failed {
+    color: #ff0000; 
+}
+
+/* ========================================================= */
+/* ======================= MEDIA QUERIES ==================== */
+/* ========================================================= */
+
+
+
+/* --------------------------------------------------------- */
+/* 📌 BREAKPOINT 1 — Wenn der Level-Bereich umbricht (> 1100px)    */
+/* --------------------------------------------------------- */
+@media (max-width: 1100px) {
+    .title-row {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .level-group {
+        justify-content: flex-start; 
+        flex-basis: 100%;
+        flex-wrap: wrap; 
+        gap: 1.5dvh;
+    }
+}
+
+
+/* --------------------------------------------------------- */
+/* 📌 BREAKPOINT 2 — Mittelgroße Tablets (~900px)             */
+/* --------------------------------------------------------- */
+@media (max-width: 900px) {
+
+    body {
+        gap: 1.5dvh;
+        padding: 2dvh 2dvw;
+        letter-spacing: 0.08em;
+        font-size: 0.9rem;
+    }
+
+    .fenster {
+        padding: 1.5dvh 1.5dvw;
+        gap: 1.5dvh;
+    }
+
+    h1 { font-size: 1.7rem; }
+    h2 { font-size: 1.2rem; }
+
+    .lvl {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .farbfeld.aufgabe,
+    .farbfeld.eingabe {
+        border-width: 0.6dvh;
+    }
+
+    .slider-row input[type="range"] {
+        max-width: 90%;
+    }
+}
+
+
+
+/* --------------------------------------------------------- */
+/* 📌 BREAKPOINT 3 — HANDY LAYOUT (~700px)                    */
+/* KORREKTUR: Höhen Tausch */
+/* --------------------------------------------------------- */
+@media (max-width: 700px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .title-row {
+        flex-direction: row;
+        align-items: center;
+        gap: 1dvw;
+        flex-wrap: wrap;
+    }
+
+    .level-group {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1dvh;
+        flex-basis: 100%; 
+    }
+
+    .level-group h2 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .level-bar {
+        width: 100%;
+        gap: 0.8dvw;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .lvl {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 1.2rem;
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.1rem; }
+
+    /* Allgemeine Fenster-Abstände (Padding & Gap) erhöht */
+    .fenster {
+        padding: 1.8dvh 1.2dvw;
+        gap: 1.8dvh;
+    }
+
+    /* NEUE LOGIK: FENSTER-HEIGHTS GETAUSCHT */
+    .fenster.aufgabe {
+        /* Nimmt den gesamten verbleibenden Platz ein */
+        flex: 1 1 0;
+    }
+
+    .fenster.eingabe {
+        /* Muss explizit flex-grow 0 sein, um Fenster aufgabe Platz zu lassen */
+        flex: 0 0 auto;
+    }
+
+    /* Farbfeld Aufgabe: Füllt den verbleibenden Raum */
+    .farbfeld.aufgabe {
+        flex: 1 1 auto;
+        height: auto; 
+        border-width: 0.5dvh;
+    }
+
+    /* Farbfeld Eingabe: Feste, kleine Höhe */
+    .farbfeld.eingabe {
+        /* Feste, kleine Höhe, nimmt nur minimalen Platz ein */
+        height: 12dvh;
+        flex: 0 0 auto; 
+        border-width: 0.5dvh;
+    }
+
+    .slider-group {
+        gap: 1.5dvh;
+    }
+
+    .slider-row {
+        gap: 3dvw;
+    }
+}
+
+
+
+/* --------------------------------------------------------- */
+/* 📌 BREAKPOINT 4 — SEHR KLEIN (unter 480px)                 */
+/* KORREKTUR: Höhen Tausch */
+/* --------------------------------------------------------- */
+@media (max-width: 480px) {
+    /* Allgemeine body-Abstände (Padding & Gap) erhöht */
+    body {
+        padding: 1.5dvh 1.5dvw;
+        gap: 1dvh;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        margin: 0;
+    }
+
+    .page {
+        padding-top: 0; 
+        padding-bottom: 3dvh;
+        gap: 1.5dvh;
+    }
+
+    .container{
+        padding-bottom: 0;
+    }
+
+    /* Allgemeine Fenster-Abstände (Padding & Gap) erhöht */
+    .fenster {
+        padding: 1dvh 1.5dvw;
+        gap: 1.5dvh;
+   
+        border: 0.25rem solid;
+        border-top-color: #e5e5e5;
+        border-left-color: #e5e5e5;
+        border-right-color: #7a7a7a;
+        border-bottom-color: #7a7a7a;
+    }
+
+    h1 { 
+        font-size: 1.3rem; 
+        padding: 1dvw;
+        margin: 0;
+    }
+
+    h2 { 
+        font-size: 1rem; 
+        margin: 0.2rem;
+    }
+
+    .level-group{
+        padding: 1dvw;
+    }
+
+    .lvl {
+        width: 1.4rem;
+        height: 1.4rem;
+        font-size: 1rem;
+    }
+
+    /* Farbfeld Aufgabe: Füllt den verbleibenden Raum */
+    .farbfeld.aufgabe {
+        flex: 1 1 auto;
+        height: auto;
+        border-width: 0.4dvh;
+    }
+    
+    /* Farbfeld Eingabe: Feste, sehr kleine Höhe */
+    .farbfeld.eingabe {
+        height: 18dvh;
+        flex: 0 0 auto;
+        border-width: 0.4dvh;
+    }
+
+    .slider-label,
+    .slider-value {
+        font-size: 0.8rem;
+    }
+}
