@@ -108,12 +108,16 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 
 .copy-btn img {
     width: 1rem;
     height: 1rem;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* ICON-HOVER-LOGIK (ersetzt content:url) */
