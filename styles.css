@@ -101,12 +101,6 @@ body {
 
 /* Spezifische Button-Stile */
 .copy-btn {
-    width: 2rem;
-    height: 2rem;
-    padding: 0.3rem 0.5dvw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     overflow: hidden;
 }
@@ -120,7 +114,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* ICON-HOVER-LOGIK (ersetzt content:url) */
 .copy-btn img.icon-hover {
     opacity: 0;
 }
